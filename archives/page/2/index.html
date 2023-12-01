@@ -4,19 +4,14 @@
   <meta charset="utf-8">
   
   
-  <title>web入门SQL注入第二天 | 麟的blog</title>
+  <title>Archives | 麟的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="主题：access+asp手工注入access数据库:没有储存表的库，只能猜表。 一、判断是否存在注入1.and2.or 二、判断字段数order by判断当前表的子段数 三、access数据库语句select*from news where id&#x3D;110 union select 1,username,3,4,5,6,7,8,9,10 from admin 四、猜表（是否存在）acce">
-<meta property="og:type" content="article">
-<meta property="og:title" content="web入门SQL注入第二天">
-<meta property="og:url" content="http://example.com/2023/11/20/sql2ndday/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="麟的blog">
+<meta property="og:url" content="http://example.com/archives/page/2/index.html">
 <meta property="og:site_name" content="麟的blog">
-<meta property="og:description" content="主题：access+asp手工注入access数据库:没有储存表的库，只能猜表。 一、判断是否存在注入1.and2.or 二、判断字段数order by判断当前表的子段数 三、access数据库语句select*from news where id&#x3D;110 union select 1,username,3,4,5,6,7,8,9,10 from admin 四、猜表（是否存在）acce">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-11-20T14:20:38.000Z">
-<meta property="article:modified_time" content="2023-11-20T16:34:54.267Z">
 <meta property="article:author" content="一只麟">
-<meta property="article:tag" content="SQL注入">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="麟的blog" type="application/atom+xml">
@@ -80,71 +75,45 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-sql2ndday" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/11/20/sql2ndday/" class="article-date">
-  <time class="dt-published" datetime="2023-11-20T14:20:38.000Z" itemprop="datePublished">2023-11-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      web入门SQL注入第二天
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2023" class="archive-year">2023</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2023/11/06/hello-world/" class="archive-article-date">
+  <time class="dt-published" datetime="2023-11-06T11:24:30.387Z" itemprop="datePublished">Nov 6</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2023/11/06/hello-world/">Hello World</a>
     </h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>主题：access+asp手工注入<br>access数据库:没有储存表的库，只能猜表。</p>
-<p>一、判断是否存在注入<br>1.and<br>2.or</p>
-<p>二、判断字段数<br>order by判断当前表的子段数</p>
-<p>三、access数据库语句<br>select*from news where id&#x3D;110 union select 1,username,3,4,5,6,7,8,9,10 from admin</p>
-<p>四、猜表（是否存在）<br>access+asp逐字拆解法<br>exists(select*from admin)</p>
-<p>五、猜列<br>exists(select usermame from admain)</p>
-<p>六、猜数据长度<br>1.字段长度<br>(select top 1len(username) from admin)&#x3D;8<br>(select top 1len(username) from admin)&gt;&#x3D;5<br>2查询数据<br>mid()截取位置 asc()ASCII码<br>（select top 1 asc(mid(username,1,1)from admin)&#x3D;97</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/20/sql2ndday/" data-id="clpml2im70005uoca8kyl4dv4" data-title="web入门SQL注入第二天" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E6%B3%A8%E5%85%A5/" rel="tag">SQL注入</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2023/11/21/sql3rdday/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          web入门SQL注入第三天
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2023/11/15/sql1stday/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">web入门SQL注入第一天</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </section>
         
